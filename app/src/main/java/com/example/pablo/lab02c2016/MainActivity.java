@@ -109,9 +109,10 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
 
                 if(!radioBebida.isChecked() && !radioPostre.isChecked() && !radioPlato.isChecked()){
-                    Toast.makeText(MainActivity.this,"Seleccione una opción",1);
-
+                    Toast.makeText(MainActivity.this,"Seleccione una opción",Toast.LENGTH_SHORT).show();
                 }
+                else
+                    textviewPedido.setText(textviewPedido.getText() + "\n" + elementoActual.toString());
             }
         });
 
