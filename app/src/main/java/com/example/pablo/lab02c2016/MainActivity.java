@@ -65,8 +65,9 @@ public class MainActivity extends AppCompatActivity {
         listviewLista = (ListView) findViewById(R.id.listView_lista);
 
 
-        listaElementos = new ArrayAdapter<ElementoMenu>(this,android.R.layout.simple_list_item_1);
+        listaElementos = new ArrayAdapter<ElementoMenu>(this,android.R.layout.simple_list_item_single_choice);
         listviewLista.setAdapter(listaElementos);
+        listviewLista.setChoiceMode(listviewLista.CHOICE_MODE_SINGLE);
 
 
         radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
@@ -78,13 +79,10 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case R.id.radioButton_plato:
                         listaElementos.clear();
-
-
                         listaElementos.addAll(Arrays.asList(listaPlatos));
                         break;
                     case R.id.radioButton_bebida:
                         listaElementos.clear();
-
                         listaElementos.addAll(Arrays.asList(listaBebidas));
                         break;
                     case R.id.radioButton_postre:
@@ -118,7 +116,6 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
-
 
     //AGREGADO (3.A)
     class ElementoMenu {
