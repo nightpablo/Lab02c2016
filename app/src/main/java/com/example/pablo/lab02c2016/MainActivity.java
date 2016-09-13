@@ -36,6 +36,9 @@ public class MainActivity extends AppCompatActivity {
     Button btnConfirmar;
     Button btnReiniciar;
     ListView listviewLista;
+    Boolean pedidoConfirmado;
+    private ArrayList<ElementoMenu> elementosPedidos;
+    Double total;
 
     // AGREGADO (3.C)
     private ElementoMenu[] listaBebidas;
@@ -63,8 +66,11 @@ public class MainActivity extends AppCompatActivity {
         btnConfirmar = (Button) findViewById(R.id.button_confirmarpedido);
         btnReiniciar = (Button) findViewById(R.id.button_reiniciar);
         listviewLista = (ListView) findViewById(R.id.listView_lista);
+        pedidoConfirmado = false;
+        total = (Double) 0.0;
+        elementosPedidos = new ArrayList<ElementoMenu>();
 
-
+        //Definimos la lista de productos que se ofrecen y lo seteamos al Adaptador
         listaElementos = new ArrayAdapter<ElementoMenu>(this,android.R.layout.simple_list_item_single_choice);
         listviewLista.setAdapter(listaElementos);
         listviewLista.setChoiceMode(listviewLista.CHOICE_MODE_SINGLE);
@@ -109,11 +115,35 @@ public class MainActivity extends AppCompatActivity {
                 if(!radioBebida.isChecked() && !radioPostre.isChecked() && !radioPlato.isChecked()){
                     Toast.makeText(MainActivity.this,"Seleccione una opción",Toast.LENGTH_SHORT).show();
                 }
-                else
+                else if(pedidoConfirmado)
+                    Toast.makeText(MainActivity.this,"No puede agregar un producto porque ya confirmo el pedido",Toast.LENGTH_SHORT).show();
+                else{
                     textviewPedido.setText(textviewPedido.getText() + "\n" + elementoActual.toString());
+                    elementosPedidos.add(elementoActual);
+                    total += elementoActual.getPrecio();
+                }
+
             }
         });
 
+        btnConfirmar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view){
+                if(!pedidoConfirmado) {
+                    pedidoConfirmado = true;
+                    textviewPedido.setText(textviewPedido.getText() + "\nTotal: $" + f.format(total));
+                }
+        }
+        });
+        btnReiniciar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                listaElementos.clear();
+                elementosPedidos.clear();
+                textviewPedido.setText("");
+                pedidoConfirmado = false;
+            }
+        });
 
     }
 
