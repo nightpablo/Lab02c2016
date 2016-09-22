@@ -1,5 +1,6 @@
 package com.example.pablo.lab02c2016;
 
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -79,13 +80,14 @@ public class MainActivity extends AppCompatActivity {
         radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
-
+                listviewLista.clearChoices();
                 switch (i){
                     case -1:
                         break;
                     case R.id.radioButton_plato:
                         listaElementos.clear();
                         listaElementos.addAll(Arrays.asList(listaPlatos));
+
                         break;
                     case R.id.radioButton_bebida:
                         listaElementos.clear();
@@ -113,10 +115,10 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
 
                 if(!radioBebida.isChecked() && !radioPostre.isChecked() && !radioPlato.isChecked()){
-                    Toast.makeText(MainActivity.this,"Seleccione una opción",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this,getResources().getString(R.string.toast1),Toast.LENGTH_SHORT).show();
                 }
                 else if(pedidoConfirmado)
-                    Toast.makeText(MainActivity.this,"No puede agregar un producto porque ya confirmo el pedido",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this,getResources().getString(R.string.toast2),Toast.LENGTH_SHORT).show();
                 else{
                     textviewPedido.setText(textviewPedido.getText() + "\n" + elementoActual.toString());
                     elementosPedidos.add(elementoActual);
@@ -129,21 +131,40 @@ public class MainActivity extends AppCompatActivity {
         btnConfirmar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view){
-                if(!pedidoConfirmado) {
+                if(textviewPedido.equals(""))
+                    Toast.makeText(MainActivity.this, getResources().getString(R.string.toast3), Toast.LENGTH_SHORT).show();
+                else if(!pedidoConfirmado) {
                     pedidoConfirmado = true;
                     textviewPedido.setText(textviewPedido.getText() + "\nTotal: $" + f.format(total));
                 }
+                else
+                    Toast.makeText(MainActivity.this, getResources().getString(R.string.toast4), Toast.LENGTH_SHORT).show();
         }
         });
         btnReiniciar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                radioGroup.check(-1);
                 listaElementos.clear();
                 elementosPedidos.clear();
                 textviewPedido.setText("");
                 pedidoConfirmado = false;
+                listviewLista.clearChoices();
             }
         });
+        String[] listaHora = new String[5];
+
+        listaHora[0]=getResources().getString(R.string.hora1);
+        listaHora[1]=getResources().getString(R.string.hora2);
+        listaHora[2]=getResources().getString(R.string.hora3);
+        listaHora[3]=getResources().getString(R.string.hora4);
+        listaHora[4]=getResources().getString(R.string.hora5);
+        ArrayAdapter<String> hora = new ArrayAdapter<String>(this,android.R.layout.select_dialog_item,listaHora);
+        spinnerHora.setAdapter(hora);
+        toggleSeleccion.setText(getResources().getString(R.string.TextToggle1));
+        toggleSeleccion.setTextOff(getResources().getString(R.string.TextToggle1));
+        toggleSeleccion.setTextOn(getResources().getString(R.string.TextToggle2));
+
 
     }
 

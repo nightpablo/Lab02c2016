@@ -1,5 +1,21 @@
 <resources>
     <string name="app_name">Lab02c2016</string>
-    <string name="cena">Pedite la cena!!!</string>
+
+    <string name="Textcena">Pedite la cena!!!</string>
+    <string name="Texthorario">Seleccione el horario</string>
+    <string name="TextNotific">Notificar Reserva 1 hora antes</string>
+    <string name="TextToggle1">RESERVAR MESA</string>
+    <string name="TextToggle2">DELIVERY</string>
+
+    <string name="hora1">20:00</string>
+    <string name="hora2">20:30</string>
+    <string name="hora3">21:00</string>
+    <string name="hora4">21:30</string>
+    <string name="hora5">22:00</string>
+
+    <string name="toast1">Seleccione una opción</string>
+    <string name="toast2">No puede agregar un producto porque ya confirmo el pedido</string>
+    <string name="toast3">Debe agregar un consumo antes de poder confirmar el pedido</string>
+    <string name="toast4">Un pedido ya fue confirmado. Reinicie para realizar otro pedido</string>
 
 </resources>
