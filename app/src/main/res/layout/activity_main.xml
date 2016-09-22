@@ -34,7 +34,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Seleccione el horario"
+        android:text="@string/Texthorario"
         android:id="@+id/text_horario"
         android:layout_below="@+id/toggle_seleccion"
         android:layout_alignParentStart="true" />
@@ -50,7 +50,7 @@
     <Switch
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Notificar Reserva 1 hora antes"
+        android:text="@string/TextNotific"
         android:id="@+id/switch_hora"
         android:layout_alignParentEnd="true"
         android:checked="false"
@@ -78,7 +78,7 @@
     <RadioButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Plato"
+        android:text="@string/TextPlato"
         android:id="@+id/radioButton_plato"
         android:layout_below="@+id/textView_pedido"
         android:layout_alignParentStart="true"
@@ -87,7 +87,7 @@
     <RadioButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Postre"
+        android:text="@string/TextPostre"
         android:id="@+id/radioButton_postre"
         android:checked="false"
         android:layout_below="@+id/textView_pedido"
@@ -96,7 +96,7 @@
     <RadioButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Bebida"
+        android:text="@string/TextBebida"
         android:id="@+id/radioButton_bebida"
         android:checked="false"
         android:layout_marginStart="29dp"
@@ -107,7 +107,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="AGREGAR"
+        android:text="@string/TextAgregar"
         android:id="@+id/button_agregar"
         android:layout_below="@+id/rBtnGroup"
         android:layout_alignParentStart="true" />
@@ -115,7 +115,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="CONFIRMAR PEDIDO"
+        android:text="@string/TextConfirmar"
         android:id="@+id/button_confirmarpedido"
         android:layout_alignBottom="@+id/button_agregar"
         android:layout_toEndOf="@+id/button_agregar" />
@@ -123,7 +123,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="REINICIAR"
+        android:text="@string/TextReiniciar"
         android:id="@+id/button_reiniciar"
         android:layout_alignBottom="@+id/button_confirmarpedido"
         android:layout_toEndOf="@+id/button_confirmarpedido" />

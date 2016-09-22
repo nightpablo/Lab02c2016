@@ -6,6 +6,17 @@
     <string name="TextNotific">Notificar Reserva 1 hora antes</string>
     <string name="TextToggle1">RESERVAR MESA</string>
     <string name="TextToggle2">DELIVERY</string>
+    <string name="TextPlato">Plato</string>
+    <string name="TextPostre">Postre</string>
+    <string name="TextBebida">Bebida</string>
+    <string name="TextAgregar">AGREGAR</string>
+    <string name="TextConfirmar">CONFIRMAR PEDIDO</string>
+    <string name="TextReiniciar">REINICIAR</string>
+
+
+
+
+
 
     <string name="hora1">20:00</string>
     <string name="hora2">20:30</string>
